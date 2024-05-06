@@ -3,6 +3,13 @@
   "name": "Testing Framework",
   "description": "This chrome extension is a testing framework",
   "version": "0.1",
+  "permissions": [
+    "tabs",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "./popup/popup.html",
     "default_icon": "icon.ico"
