@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Testing Framework</title>
+    <title>WebTest Pro</title>
+    <link rel="stylesheet" type="text/css" href="popup.css">
 </head>
 <body>
-<h1>Take a Screenshot</h1>
-<button id="screenshot-button">Capture Screenshot</button>
+<div id="content-container">
+    <h1>WebTest Pro</h1>
+    <div id="context-container">
+        <label for="screenshot-context">Context:</label>
+        <textarea id="screenshot-context" rows="5" placeholder="What's the purpose of this site?"></textarea>
+    </div>
+    <div id="submit-button-container">
+        <div id="loading-icon hide" class="loader"></div>
+        <button id="screenshot-button">Process Site</button>
+    </div>
+    <div id="test-cases-list">
+
+    </div>
+</div>
 
 <script src="popup.js"></script>
 </body>
