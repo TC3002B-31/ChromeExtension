@@ -8,7 +8,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 sendResponse({ success: false, error: chrome.runtime.lastError.message });
             } else {
                 console.log("Screenshot captured: ", base64_image);
-                sendResponse({ success: true, base64_image: base64_image });
+                sendResponse({ success: true, base64_image: base64_image.toString() });
             }
         });
 
@@ -25,7 +25,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ base64_image: toString(base64_image), site_context: toString(site_context)}),
+            body: JSON.stringify({ "base64_image": base64_image, "site_context": site_context})
 
         }).then(response => response.json()).then(data => {
             console.log("Data: ", data);

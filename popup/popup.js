@@ -3,6 +3,13 @@ let screenshotButton = document.getElementById("screenshot-button");
 
 // Triggers the capture of a screenshot
 document.getElementById("screenshot-button").addEventListener("click", function () {
+    // get textarea value
+    const site_context = document.getElementById("screenshot-context");
+    site_context.disabled = true;
+
+    screenshotButton.style.visibility = "hidden";
+    loadingIcon.classList.remove("hide");
+
     chrome.runtime.sendMessage({action: "capture_screenshot"}, (response) => {
         console.log("sendImageToAnalyze response: ", response)
         if (response.success) {
@@ -10,13 +17,9 @@ document.getElementById("screenshot-button").addEventListener("click", function 
             const base64_image = response.base64_image;
             console.log("Screenshot captured: ", base64_image);
 
-            // get textarea value
-            const site_context = document.getElementById("screenshot-context").value;
+            sendImageToAnalyze(base64_image, site_context.value);
 
-            screenshotButton.style.visibility = "hidden";
-            loadingIcon.style.display = "block";
 
-            sendImageToAnalyze(base64_image, site_context);
         } else {
             console.error("Screenshot capture failed: " + response.error);
         }
@@ -40,8 +43,9 @@ function sendImageToAnalyze(base64_image, site_context) {
 
             loadingIcon.style.display = "none";
 
-            console.log("Response from server: ", response);
+            getAllTasks();
 
+            console.log("Response from server: ", response);
         } else {
             console.error("Screenshot capture failed: " + response.error);
             loadingIcon.style.display = "none";
@@ -50,6 +54,36 @@ function sendImageToAnalyze(base64_image, site_context) {
 
         return true;
     });
+}
+
+let tasksCheckboxes = []
+let taskProgress = 0;
+
+function updateProgress(){
+    document.getElementById("progress-container").classList.remove("hide");
+
+    let progressValue = document.getElementById("progress-value");
+    let progressPercentage = (taskProgress / tasksCheckboxes.length) * 100;
+    progressValue.innerHTML = Math.round(progressPercentage) + "%";
+
+}
+
+function getAllTasks(){
+    tasksCheckboxes = document.querySelectorAll("input[type='checkbox']");
+    console.log("tasksCheckboxes: ", tasksCheckboxes);
+    updateProgress();
+
+    for (let i = 0; i < tasksCheckboxes.length; i++) {
+        tasksCheckboxes[i].addEventListener("change", function(){
+            if (tasksCheckboxes[i].checked){
+                taskProgress++;
+            } else {
+                taskProgress--;
+            }
+            updateProgress();
+        });
+    }
+
 }
 
 
