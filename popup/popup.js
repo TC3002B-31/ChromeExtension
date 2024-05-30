@@ -94,15 +94,6 @@ document.getElementById('download-button').addEventListener('click', function ()
     <html>
     <head>
         <style>
-            .relative {
-                position: relative;
-            }
-            .hide {
-                display: none;
-            }
-            #progress-container {
-                margin-bottom: 10px;
-            }
         </style>
     </head>
     <body>
@@ -113,9 +104,46 @@ document.getElementById('download-button').addEventListener('click', function ()
             <div id="test-cases-list">
                 ${testCasesListContent}
             </div>
-            <script src="functions.js"></script>
         </div>
     </body>
+    <script>
+                let tasksCheckboxes = []
+                let taskProgress = 0;
+                
+                function updateProgress() {
+                    let progressContainer = document.getElementById("progress-container");
+                    let progressValue = document.getElementById("progress-value");
+        
+                    if (progressContainer) {
+                        progressContainer.classList.remove("hide");
+                    }
+                    if (progressValue) {
+                        let progressPercentage = (taskProgress / tasksCheckboxes.length) * 100;
+                        progressValue.innerHTML = Math.round(progressPercentage) + "%";
+                    }
+                }
+                
+                function getAllTasks() {
+                    tasksCheckboxes = document.querySelectorAll("input[type='checkbox']");
+                    console.log("tasksCheckboxes: ", tasksCheckboxes);
+                    updateProgress();
+                
+                    for (let i = 0; i < tasksCheckboxes.length; i++) {
+                        tasksCheckboxes[i].addEventListener("change", function () {
+                            if (tasksCheckboxes[i].checked) {
+                                taskProgress++;
+                            } else {
+                                taskProgress--;
+                            }
+                            updateProgress();
+                        });
+                    }
+                
+                }
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    getAllTasks();
+                });
+            </script>
     </html>
     `;
 
