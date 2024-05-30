@@ -13,7 +13,6 @@ document.getElementById("screenshot-button").addEventListener("click", function 
     chrome.runtime.sendMessage({ action: "capture_screenshot" }, (response) => {
         console.log("sendImageToAnalyze response: ", response)
         if (response.success) {
-            console.log("Entered screennshot-button success block")
             const base64_image = response.base64_image;
             console.log("Screenshot captured: ", base64_image);
 
@@ -36,8 +35,6 @@ function sendImageToAnalyze(base64_image, site_context) {
         console.log("sendImageToAnalyze response: ", response)
         if (response.success) {
             console.log("Entered analyze_image success block")
-            // TODO: Handle success response from the server
-            // Open new tab with the result
             document.getElementById("test-cases-list").innerHTML = response.data;
             document.getElementsByTagName("html")[0].classList.add("expand");
 
