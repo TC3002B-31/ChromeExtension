@@ -7,29 +7,40 @@
 </head>
 
 <body>
-    <div id="content-container">
-        <h1>SiteProof</h1>
-        <div id="context-container">
-            <label for="screenshot-context">Context:</label>
-            <textarea id="screenshot-context" rows="5" placeholder="What's the purpose of this site?"></textarea>
+<div id="content-container">
+    <h1>SiteProof</h1>
+    <div id="context-container">
+        <label for="screenshot-context">Context:</label>
+        <textarea id="screenshot-context" rows="5" placeholder="What's the purpose of this site?"></textarea>
+    </div>
+    <div id="feedback-section">
+        <div id="green-feedback__container">
+            <img id="thumb-up_icon" src="./src/icons/hand-thumbs-up.svg" />
+            <img id="thumb-up-fill_icon" src="./src/icons/hand-thumbs-up-fill.svg" />
         </div>
-        <div id="submit-button-container">
-            <div id="loading-icon" class="loader hide"></div>
-            <button id="screenshot-button">Process Site</button>
-        </div>
-        <div class="relative">
-            <div id="progress-container" class="hide">
-                <h2 id="progress-value"></h2>
-                <aside>of testing completed</aside>
-            </div>
-            <div id="test-cases-list">
-
-            </div>
-            <button id="download-button" class="hide">Download Report</button>
+        <div id="red-feedback__container">
+            <img id="thumb-down_icon" src="./src/icons/hand-thumbs-down.svg" />
+            <img id="thumb-down-fill_icon" src="./src/icons/hand-thumbs-down-fill.svg" />
         </div>
     </div>
+    <div id="submit-button-container">
+        <div id="loading-icon" class="loader hide"></div>
+        <button id="screenshot-button">Process Site</button>
+    </div>
+    <div class="relative">
+        <div id="progress-container" class="hide">
+            <h2 id="progress-value"></h2>
+            <aside>of testing completed</aside>
+        </div>
+        <div id="test-cases-list" class="hide">
 
-    <script type="module" src="popup.js"></script>
+        </div>
+
+        <button id="download-button" class="hide">Download Report</button>
+    </div>
+</div>
+
+<script type="module" src="popup.js"></script>
 </body>
 
 </html>

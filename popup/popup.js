@@ -16,6 +16,7 @@ document.getElementById("screenshot-button").addEventListener("click", function 
             const base64_image = response.base64_image;
             console.log("Screenshot captured: ", base64_image);
 
+
             sendImageToAnalyze(base64_image, site_context.value);
 
 
@@ -35,7 +36,10 @@ function sendImageToAnalyze(base64_image, site_context) {
         console.log("sendImageToAnalyze response: ", response)
         if (response.success) {
             console.log("Entered analyze_image success block")
-            document.getElementById("test-cases-list").innerHTML = response.data;
+            let testCasesList = document.getElementById("test-cases-list");
+            testCasesList.innerHTML = response.data;
+            testCasesList.classList.remove("hide");
+
             document.getElementsByTagName("html")[0].classList.add("expand");
 
             loadingIcon.style.display = "none";
@@ -134,4 +138,45 @@ document.getElementById('download-button').addEventListener('click', function ()
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 });
+
+let feedbackVal = "";
+let thumbUp = document.getElementById("thumb-up_icon");
+let thumbUpFill = document.getElementById("thumb-up-fill_icon");
+let thumbDown = document.getElementById("thumb-down_icon");
+let thumbDownFill = document.getElementById("thumb-down-fill_icon");
+
+function updateFeedbackIcons(){
+    if(feedbackVal === "positive"){
+        thumbUp.classList.add("hide");
+        thumbUpFill.classList.remove("hide");
+        thumbDown.classList.remove("hide");
+        thumbDownFill.classList.add("hide");
+    } else if(feedbackVal === "negative"){
+        thumbUp.classList.remove("hide");
+        thumbUpFill.classList.add("hide");
+        thumbDown.classList.add("hide");
+        thumbDownFill.classList.remove("hide");
+    } else {
+        thumbUp.classList.remove("hide");
+        thumbUpFill.classList.add("hide");
+        thumbDown.classList.remove("hide");
+        thumbDownFill.classList.add("hide");
+
+    }
+}
+
+updateFeedbackIcons();
+
+thumbUp.addEventListener("click", function () {
+    feedbackVal = "positive";
+    updateFeedbackIcons();
+});
+
+thumbDown.addEventListener("click", function () {
+    feedbackVal = "negative";
+    updateFeedbackIcons();
+    // Open a user input dialog to get feedback
+    let feedback = prompt("Please provide feedback. How can we improve our model?", "");
+});
+
 
