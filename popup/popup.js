@@ -39,6 +39,7 @@ function sendImageToAnalyze(base64_image, site_context) {
             let testCasesList = document.getElementById("test-cases-list");
             testCasesList.innerHTML = response.data;
             testCasesList.classList.remove("hide");
+            document.getElementById("feedback-section").classList.remove("hidden");
 
             document.getElementsByTagName("html")[0].classList.add("expand");
 

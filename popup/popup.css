@@ -44,7 +44,7 @@ body {
 	border-radius : 5px 5px 0 0;
 	color         : var(--primary-text-color);
 	font-weight   : bold;
-} */
+}
 
 .extension-button {
 	background: var(--accent-text-color);
@@ -196,16 +196,28 @@ input[type='checkbox']:focus {
 
 /* Feedback icons */
 #feedback-section {
+	font-size: 0.5rem;
+	font-style: italic;
+	color: var(--secondary-text-color);
+	backdrop-filter: blur(10px);
+	background: rgba(0,0,0,0.3);
 	position       : fixed;
 	right          : 0;
 	bottom         : 0;
+	display        : flex;
+	flex-direction : column;
+	align-items    : center;
+	z-index: 999;
+}
+
+#feedback-buttons{
 	display        : flex;
 	flex-direction : row;
 	align-items    : center;
 	height: 30px;
 }
-#feedback-section > div {
-	padding : 3px 10px;
+#feedback-buttons > div {
+	padding : 3px 15px;
 }
 
 #green-feedback__container {
