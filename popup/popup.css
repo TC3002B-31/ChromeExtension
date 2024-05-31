@@ -1,42 +1,42 @@
 :root {
-	--background-color     : #242529;
-	--primary-text-color   : #FFFFFF;
-	--accent-text-color    : #1D7FFF;
-	--secondary-text-color : #838486;
+	--background-color: #242529;
+	--primary-text-color: #FFFFFF;
+	--accent-text-color: #1D7FFF;
+	--secondary-text-color: #838486;
 }
 
 html {
-	background    : var(--background-color);
-	height        : 200px;
-	width         : 300px;
-	transition    : all ease-in-out 0.5s;
-	border        : none;
-	border-radius : 25px;
+	background: var(--background-color);
+	height: 200px;
+	width: 300px;
+	transition: all ease-in-out 0.5s;
+	border: none;
+	border-radius: 25px;
 }
 
 body {
-	margin : 14px;
+	margin: 14px;
 }
 
 #content-container {
-	color          : var(--primary-text-color);
-	width          : 100%;
-	display        : flex;
-	flex-direction : column;
+	color: var(--primary-text-color);
+	width: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 #context-container {
-	display        : flex;
-	gap            : 10px;
-	flex-direction : column;
-	padding        : 10px;
+	display: flex;
+	gap: 10px;
+	flex-direction: column;
+	padding: 10px;
 }
 
 #context-container label {
-	color : var(--secondary-text-color);
+	color: var(--secondary-text-color);
 }
 
-#screenshot-button {
+/* #screenshot-button {
 	background    : var(--accent-text-color);
 	padding       : 5px 0;
 	width         : 100%;
@@ -44,172 +44,190 @@ body {
 	border-radius : 5px 5px 0 0;
 	color         : var(--primary-text-color);
 	font-weight   : bold;
+} */
+
+.extension-button {
+	background: var(--accent-text-color);
+	padding: 5px 0;
+	margin-bottom: 2%;
+	width: 100%;
+	border: #1D7FFF 1px solid;
+	border-radius: 0 0 5px 5px;
+	color: var(--primary-text-color);
+	font-weight: bold;
 }
 
 #submit-button-container {
-	margin-top : 10px;
-	width      : 100%;
-	height     : 15px;
+	margin-top: 10px;
+	width: 100%;
+	height: 15px;
 }
 
 #progress-container {
-	position        : fixed;
-	top             : 0;
-	right           : 0;
-	padding         : 10px;
-	background      : rgba(0, 0, 0, 0.25);
-	backdrop-filter : blur(5px);
-	display         : flex;
-	flex-direction  : column;
-	align-items     : center;
-	justify-content : center;
-	color           : var(--accent-text-color);
+	position: fixed;
+	top: 0;
+	right: 0;
+	padding: 10px;
+	background: rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(5px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: var(--accent-text-color);
 }
 
 #progress-container aside {
-	color      : var(--secondary-text-color);
-	font-style : italic;
+	color: var(--secondary-text-color);
+	font-style: italic;
 }
 
 #progress-value {
-	margin-top    : 0;
-	margin-bottom : 4px;
-	font-size     : 1.5rem;
-	font-weight   : bold;
+	margin-top: 0;
+	margin-bottom: 4px;
+	font-size: 1.5rem;
+	font-weight: bold;
 }
 
 #test-cases-list {
-	padding-bottom : 15px;
+	padding-bottom: 15px;
 	display: flex;
 	flex-direction: column;
 	gap: 0.5em;
 }
 
 h1 {
-	color           : var(--primary-text-color);
-	font-size       : 1.8em;
-	text-decoration : underline;
-	margin          : 0;
-	padding         : 20px 15px;
-	text-align      : center;
-	
+	color: var(--primary-text-color);
+	font-size: 1.8em;
+	text-decoration: underline;
+	margin: 0;
+	padding: 20px 15px;
+	text-align: center;
+
 }
 
 li {
-	list-style-type : none;
+	list-style-type: none;
 }
 
 textarea {
-	border     : none;
-	font-size  : 12px;
-	padding    : 0;
-	margin     : 0;
-	background : var(--background-color);
-	color      : var(--primary-text-color);
+	border: none;
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+	background: var(--background-color);
+	color: var(--primary-text-color);
 }
+
 textarea::placeholder {
-	color   : var(--secondary-text-color);
-	opacity : 1;
+	color: var(--secondary-text-color);
+	opacity: 1;
 }
 
 .hidden {
-	visibility : hidden !important;
+	visibility: hidden !important;
 }
+
 .hide {
-	display : none !important;
+	display: none !important;
 }
 
 .relative {
-	position : relative;
-	
+	position: relative;
+
 }
 
 .expand {
-	width  : 600px;
-	height : 600px;
+	width: 600px;
+	height: 600px;
 }
 
 .list-item {
-	display               : grid;
-	grid-template-columns : 1em auto;
-	gap                   : 0.8em;
+	display: grid;
+	grid-template-columns: 1em auto;
+	gap: 0.8em;
 	margin-left: 2em;
 }
 
 input[type='checkbox'] {
 	/* Add if not using autoprefixer */
-	-webkit-appearance : none;
+	-webkit-appearance: none;
 	/* Remove most all native input styles */
-	appearance         : none;
+	appearance: none;
 	/* For iOS < 15 */
-	background-color   : var(--background-color);
+	background-color: var(--background-color);
 	/* Not removed via appearance */
-	margin             : 0;
-	
-	font               : inherit;
-	color              : var(--secondary-text-color);
-	width              : 1.15em;
-	height             : 1.15em;
-	border             : 0.1em solid currentColor;
-	border-radius      : 0.15em;
-	transform          : translateY(-0.075em);
-	
-	display            : grid;
-	place-content      : center;
+	margin: 0;
+
+	font: inherit;
+	color: var(--secondary-text-color);
+	width: 1.15em;
+	height: 1.15em;
+	border: 0.1em solid currentColor;
+	border-radius: 0.15em;
+	transform: translateY(-0.075em);
+
+	display: grid;
+	place-content: center;
 }
 
 input[type='checkbox']::before {
-	content          : '';
-	width            : 0.65em;
-	height           : 0.65em;
-	clip-path        : polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-	transform        : scale(0);
-	transform-origin : bottom left;
-	transition       : 120ms transform ease-in-out;
-	box-shadow       : inset 0.5em 0.5em var(--accent-text-color);
+	content: '';
+	width: 0.65em;
+	height: 0.65em;
+	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+	transform: scale(0);
+	transform-origin: bottom left;
+	transition: 120ms transform ease-in-out;
+	box-shadow: inset 0.5em 0.5em var(--accent-text-color);
 	/* Windows High Contrast Mode */
-	background-color : CanvasText;
+	background-color: CanvasText;
 }
 
 input[type='checkbox']:checked::before {
 	color: var(--accent-text-color);
-	border             : 0.1em solid currentColor;
-	transform : scale(1);
+	border: 0.1em solid currentColor;
+	transform: scale(1);
 }
 
 input[type='checkbox']:focus {
-	outline        : max(2px, 0.15em) solid currentColor;
-	outline-offset : max(2px, 0.15em);
+	outline: max(2px, 0.15em) solid currentColor;
+	outline-offset: max(2px, 0.15em);
 }
 
 /* HTML: <div class="loader"></div> */
 .loader {
-	position        : absolute;
-	bottom          : -5px;
-	height          : 15px;
-	width           : calc(100% - 30px);
-	--c             : no-repeat linear-gradient(#1D7FFF 0 0);
-	background      : var(--c), var(--c), var(--c), var(--c);
-	background-size : 26% 3px;
-	animation       : l2 1.5s infinite;
+	position: absolute;
+	bottom: -5px;
+	height: 15px;
+	width: calc(100% - 30px);
+	--c: no-repeat linear-gradient(#1D7FFF 0 0);
+	background: var(--c), var(--c), var(--c), var(--c);
+	background-size: 26% 3px;
+	animation: l2 1.5s infinite;
 }
+
 @keyframes l2 {
+
 	0%,
 	70%,
 	100% {
-		background-position : calc(0 * 100% / 3) 100%, calc(1 * 100% / 3) 100%, calc(2 * 100% / 3) 100%, calc(3 * 100% / 3) 100%
+		background-position: calc(0 * 100% / 3) 100%, calc(1 * 100% / 3) 100%, calc(2 * 100% / 3) 100%, calc(3 * 100% / 3) 100%
 	}
+
 	14% {
-		background-position : calc(0 * 100% / 3) 0, calc(1 * 100% / 3) 100%, calc(2 * 100% / 3) 100%, calc(3 * 100% / 3) 100%
+		background-position: calc(0 * 100% / 3) 0, calc(1 * 100% / 3) 100%, calc(2 * 100% / 3) 100%, calc(3 * 100% / 3) 100%
 	}
+
 	28% {
-		background-position : calc(0 * 100% / 3) 100%, calc(1 * 100% / 3) 0, calc(2 * 100% / 3) 100%, calc(3 * 100% / 3) 100%
+		background-position: calc(0 * 100% / 3) 100%, calc(1 * 100% / 3) 0, calc(2 * 100% / 3) 100%, calc(3 * 100% / 3) 100%
 	}
+
 	42% {
-		background-position : calc(0 * 100% / 3) 100%, calc(1 * 100% / 3) 100%, calc(2 * 100% / 3) 0, calc(3 * 100% / 3) 100%
+		background-position: calc(0 * 100% / 3) 100%, calc(1 * 100% / 3) 100%, calc(2 * 100% / 3) 0, calc(3 * 100% / 3) 100%
 	}
+
 	56% {
-		background-position : calc(0 * 100% / 3) 100%, calc(1 * 100% / 3) 100%, calc(2 * 100% / 3) 100%, calc(3 * 100% / 3) 0
+		background-position: calc(0 * 100% / 3) 100%, calc(1 * 100% / 3) 100%, calc(2 * 100% / 3) 100%, calc(3 * 100% / 3) 0
 	}
 }
-
